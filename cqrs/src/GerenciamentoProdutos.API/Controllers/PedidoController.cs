@@ -1,5 +1,6 @@
 ﻿using GerenciamentoProdutos.API.Controllers.Common;
-using GerenciamentoProdutos.Application.Requests.Pedidos;
+using GerenciamentoProdutos.Application.Commands.Pedidos;
+using GerenciamentoProdutos.Application.Queries.Pedidos;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GerenciamentoProdutos.API.Controllers;
@@ -9,13 +10,13 @@ namespace GerenciamentoProdutos.API.Controllers;
 public class PedidoController : BaseApiController
 {
     [HttpPost]
-    public async Task<IActionResult> Criar([FromBody] CriarPedidoRequest request)
+    public async Task<IActionResult> Criar([FromBody] CriarPedidoCommand request)
     {
         return GetResponse(await Mediator.Send(request));
     }
 
     [HttpGet]
-    public async Task<IActionResult> Consultar([FromQuery] ConsultarPedidosRequest request)
+    public async Task<IActionResult> Consultar([FromQuery] ConsultarPedidosQuery request)
     {
         return GetResponse(await Mediator.Send(request));
     }

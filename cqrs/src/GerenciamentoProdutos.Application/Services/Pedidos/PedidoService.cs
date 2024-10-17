@@ -1,26 +1,23 @@
-﻿using GerenciamentoProdutos.Application.Persistence;
-using GerenciamentoProdutos.Application.Requests.Pedidos;
+﻿using GerenciamentoProdutos.Application.Commands.Pedidos;
+using GerenciamentoProdutos.Application.Persistence;
 using GerenciamentoProdutos.Application.Services.Produtos;
-using GerenciamentoProdutos.Application.Specifications.Pedidos;
-using GerenciamentoProdutos.Domain.Entities.ItensPedidos;
-using GerenciamentoProdutos.Domain.Entities.Pedidos;
+using GerenciamentoProdutos.Domain.Entities.Write.ItensPedidos;
+using GerenciamentoProdutos.Domain.Entities.Write.Pedidos;
 
 namespace GerenciamentoProdutos.Application.Services.Pedidos;
 
 public class PedidoService : IPedidoService
 {
     private readonly IRepository<Pedido> _repository;
-    private readonly IReadRepository<Pedido> _readRepository;
     private readonly IProdutoService _produtoService;
 
-    public PedidoService(IRepository<Pedido> repository, IReadRepository<Pedido> readRepository, IProdutoService produtoService)
+    public PedidoService(IRepository<Pedido> repository, IProdutoService produtoService)
     {
         _repository = repository;
-        _readRepository = readRepository;
         _produtoService = produtoService;
     }
 
-    public async Task<Pedido?> CriarPedido(CriarPedidoRequest pedido, CancellationToken cancellationToken)
+    public async Task<Pedido?> CriarPedido(CriarPedidoCommand pedido, CancellationToken cancellationToken)
     {
         var itensPedido = new List<ItensPedido>();
         decimal total = 0m;
@@ -43,10 +40,5 @@ public class PedidoService : IPedidoService
 
         await _repository.AddAsync(novoPedido, cancellationToken);
         return novoPedido;
-    }
-
-    public async Task<IEnumerable<Pedido>> ConsultarPedidos(ConsultarPedidosRequest request, CancellationToken cancellationToken)
-    {
-        return await _readRepository.ListAsync(new ConsultarPedidosSpec(), cancellationToken);
     }
 }

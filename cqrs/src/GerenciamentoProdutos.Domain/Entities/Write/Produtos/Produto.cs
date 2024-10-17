@@ -1,6 +1,6 @@
 ﻿using GerenciamentoProdutos.Domain.Common.Contracts;
 
-namespace GerenciamentoProdutos.Domain.Entities.Produtos;
+namespace GerenciamentoProdutos.Domain.Entities.Write.Produtos;
 
 public class Produto : BaseEntity, IAggregateRoot
 {

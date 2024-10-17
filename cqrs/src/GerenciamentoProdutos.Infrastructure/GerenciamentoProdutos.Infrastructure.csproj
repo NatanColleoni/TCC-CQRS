@@ -20,9 +20,4 @@
     <ProjectReference Include="..\GerenciamentoProdutos.Application\GerenciamentoProdutos.Application.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Persistence\Configurations\" />
-    <Folder Include="Persistence\Migrations\" />
-  </ItemGroup>
-
 </Project>

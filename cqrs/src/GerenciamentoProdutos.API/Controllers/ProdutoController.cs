@@ -1,5 +1,6 @@
 ﻿using GerenciamentoProdutos.API.Controllers.Common;
-using GerenciamentoProdutos.Application.Requests.Produtos;
+using GerenciamentoProdutos.Application.Commands.Produtos;
+using GerenciamentoProdutos.Application.Queries.Produtos;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GerenciamentoProdutos.API.Controllers;
@@ -10,13 +11,13 @@ public class ProdutoController : BaseApiController
 {
 
     [HttpPost]
-    public async Task<IActionResult> Criar([FromBody] CriarProdutoRequest  request)
+    public async Task<IActionResult> Criar([FromBody] CriarProdutoCommand  request)
     {
         return GetResponse(await Mediator.Send(request));
     }
 
     [HttpGet]
-    public async Task<IActionResult> Consultar([FromQuery] ConsultarProdutosRequest request)
+    public async Task<IActionResult> Consultar([FromQuery] ConsultarProdutosQuery request)
     {
         return GetResponse(await Mediator.Send(request));
     }

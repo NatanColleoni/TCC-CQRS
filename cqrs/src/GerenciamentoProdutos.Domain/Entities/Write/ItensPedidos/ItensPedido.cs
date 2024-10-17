@@ -1,7 +1,7 @@
 ﻿using GerenciamentoProdutos.Domain.Common.Contracts;
-using GerenciamentoProdutos.Domain.Entities.Produtos;
+using GerenciamentoProdutos.Domain.Entities.Write.Produtos;
 
-namespace GerenciamentoProdutos.Domain.Entities.ItensPedidos;
+namespace GerenciamentoProdutos.Domain.Entities.Write.ItensPedidos;
 
 public class ItensPedido : BaseEntity, IAggregateRoot
 {
