@@ -1,0 +1,498 @@
+{
+	"info": {
+		"_postman_id": "48d83e85-ca5f-4602-8dd4-836c3235524d",
+		"name": "TCC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30264139"
+	},
+	"item": [
+		{
+			"name": "SEM CQRS",
+			"item": [
+				{
+					"name": "Criar Produto",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Pilha Testes\",\r\n  \"descricao\": \"Pilha ultra durável\",\r\n  \"valor\": 25.90\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7013/api/Produto",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7013",
+							"path": [
+								"api",
+								"Produto"
+							]
+						},
+						"description": "Generated from cURL: curl -X 'POST' \\\r\n  'https://localhost:7013/api/Produto' \\\r\n  -H 'accept: */*' \\\r\n  -H 'Content-Type: application/json' \\\r\n  -d '{\r\n  \"nome\": \"Produto de Teste\",\r\n  \"descricao\": \"Produto Testes\",\r\n  \"valor\": 25.99\r\n}'"
+					},
+					"response": [
+						{
+							"name": "Criar Produto",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "accept",
+										"value": "*/*"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nome\": \"Pilha\",\r\n  \"descricao\": \"Pilha ultra durável\",\r\n  \"valor\": 29.90\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:7013/api/Produto",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "7013",
+									"path": [
+										"api",
+										"Produto"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 13 Oct 2024 19:37:06 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"nome\": \"Pilha\",\n    \"descricao\": \"Pilha ultra durável\",\n    \"valorUnitario\": 29.9,\n    \"id\": 2,\n    \"createdAt\": \"2024-10-13T19:37:07.4518411Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Consultar Produto",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "https://localhost:7013/api/Produto",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7013",
+							"path": [
+								"api",
+								"Produto"
+							]
+						},
+						"description": "Generated from cURL: curl -X 'GET' \\\r\n  'https://localhost:7013/api/Produto' \\\r\n  -H 'accept: */*'"
+					},
+					"response": [
+						{
+							"name": "Consultar Produtos",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "https://localhost:7013/api/Produto",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "7013",
+									"path": [
+										"api",
+										"Produto"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 13 Oct 2024 19:37:11 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"nome\": \"Produto de Teste\",\n        \"descricao\": \"Produto Testes\",\n        \"valorUnitario\": 25.99,\n        \"id\": 1,\n        \"createdAt\": \"2024-10-13T19:33:29.853309Z\"\n    },\n    {\n        \"nome\": \"Pilha\",\n        \"descricao\": \"Pilha ultra durável\",\n        \"valorUnitario\": 29.9,\n        \"id\": 2,\n        \"createdAt\": \"2024-10-13T19:37:07.451841Z\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Criar Pedido",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ItensPedido\": [\r\n        {\r\n            \"ProdutoId\": 1966,\r\n            \"Quantidade\": 4\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7013/api/Pedido",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7013",
+							"path": [
+								"api",
+								"Pedido"
+							]
+						},
+						"description": "Generated from cURL: curl -X 'POST' \\\r\n  'https://localhost:7013/api/Pedido' \\\r\n  -H 'accept: */*' \\\r\n  -H 'Content-Type: application/json' \\\r\n  -d '{\r\n    \"ItensPedido\": [\r\n        {\r\n            \"ProdutoId\": 1,\r\n            \"Quantidade\": 3\r\n        },\r\n        {\r\n            \"ProdutoId\": 2,\r\n            \"Quantidade\": 4\r\n        }\r\n    ]\r\n}'"
+					},
+					"response": [
+						{
+							"name": "Criar Pedido",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "accept",
+										"value": "*/*"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"ItensPedido\": [\r\n        {\r\n            \"ProdutoId\": 1,\r\n            \"Quantidade\": 3\r\n        },\r\n        {\r\n            \"ProdutoId\": 2,\r\n            \"Quantidade\": 4\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:7013/api/Pedido",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "7013",
+									"path": [
+										"api",
+										"Pedido"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 13 Oct 2024 19:49:16 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"valorTotal\": 197.57,\n    \"itensDoPedido\": [\n        {\n            \"quantidade\": 3,\n            \"produtoId\": 1,\n            \"produto\": {\n                \"nome\": \"Produto de Teste\",\n                \"descricao\": \"Produto Testes\",\n                \"valorUnitario\": 25.99,\n                \"id\": 1,\n                \"createdAt\": \"2024-10-13T19:33:29.853309Z\"\n            },\n            \"id\": 3,\n            \"createdAt\": \"2024-10-13T19:49:16.0042505Z\"\n        },\n        {\n            \"quantidade\": 4,\n            \"produtoId\": 2,\n            \"produto\": {\n                \"nome\": \"Pilha\",\n                \"descricao\": \"Pilha ultra durável\",\n                \"valorUnitario\": 29.9,\n                \"id\": 2,\n                \"createdAt\": \"2024-10-13T19:37:07.451841Z\"\n            },\n            \"id\": 4,\n            \"createdAt\": \"2024-10-13T19:49:16.1634274Z\"\n        }\n    ],\n    \"id\": 2,\n    \"createdAt\": \"2024-10-13T19:49:16.1635336Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Consultar Pedido",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "https://localhost:7013/api/Pedido",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7013",
+							"path": [
+								"api",
+								"Pedido"
+							]
+						},
+						"description": "Generated from cURL: curl -X 'GET' \\\r\n  'https://localhost:7013/api/Pedido' \\\r\n  -H 'accept: */*'"
+					},
+					"response": [
+						{
+							"name": "Consultar Pedido",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "https://localhost:7013/api/Pedido",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "7013",
+									"path": [
+										"api",
+										"Pedido"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 13 Oct 2024 19:50:02 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"valorTotal\": 197.57,\n        \"itensDoPedido\": [\n            {\n                \"quantidade\": 3,\n                \"produtoId\": 1,\n                \"produto\": {\n                    \"nome\": \"Produto de Teste\",\n                    \"descricao\": \"Produto Testes\",\n                    \"valorUnitario\": 25.99,\n                    \"id\": 1,\n                    \"createdAt\": \"2024-10-13T19:33:29.853309Z\"\n                },\n                \"id\": 1,\n                \"createdAt\": \"2024-10-13T19:43:24.693298Z\"\n            },\n            {\n                \"quantidade\": 4,\n                \"produtoId\": 2,\n                \"produto\": {\n                    \"nome\": \"Pilha\",\n                    \"descricao\": \"Pilha ultra durável\",\n                    \"valorUnitario\": 29.9,\n                    \"id\": 2,\n                    \"createdAt\": \"2024-10-13T19:37:07.451841Z\"\n                },\n                \"id\": 2,\n                \"createdAt\": \"2024-10-13T19:43:24.850386Z\"\n            }\n        ],\n        \"id\": 1,\n        \"createdAt\": \"2024-10-13T19:43:24.850507Z\"\n    },\n    {\n        \"valorTotal\": 197.57,\n        \"itensDoPedido\": [\n            {\n                \"quantidade\": 3,\n                \"produtoId\": 1,\n                \"produto\": {\n                    \"nome\": \"Produto de Teste\",\n                    \"descricao\": \"Produto Testes\",\n                    \"valorUnitario\": 25.99,\n                    \"id\": 1,\n                    \"createdAt\": \"2024-10-13T19:33:29.853309Z\"\n                },\n                \"id\": 3,\n                \"createdAt\": \"2024-10-13T19:49:16.00425Z\"\n            },\n            {\n                \"quantidade\": 4,\n                \"produtoId\": 2,\n                \"produto\": {\n                    \"nome\": \"Pilha\",\n                    \"descricao\": \"Pilha ultra durável\",\n                    \"valorUnitario\": 29.9,\n                    \"id\": 2,\n                    \"createdAt\": \"2024-10-13T19:37:07.451841Z\"\n                },\n                \"id\": 4,\n                \"createdAt\": \"2024-10-13T19:49:16.163427Z\"\n            }\n        ],\n        \"id\": 2,\n        \"createdAt\": \"2024-10-13T19:49:16.163533Z\"\n    }\n]"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "COM CQRS",
+			"item": [
+				{
+					"name": "Criar Produto",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Pilha Testes\",\r\n  \"descricao\": \"Pilha ultra durável\",\r\n  \"valor\": 25.90\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7013/api/Produto",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7013",
+							"path": [
+								"api",
+								"Produto"
+							]
+						},
+						"description": "Generated from cURL: curl -X 'POST' \\\r\n  'https://localhost:7013/api/Produto' \\\r\n  -H 'accept: */*' \\\r\n  -H 'Content-Type: application/json' \\\r\n  -d '{\r\n  \"nome\": \"Produto de Teste\",\r\n  \"descricao\": \"Produto Testes\",\r\n  \"valor\": 25.99\r\n}'"
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar Produto",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "https://localhost:7013/api/Produto",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7013",
+							"path": [
+								"api",
+								"Produto"
+							]
+						},
+						"description": "Generated from cURL: curl -X 'GET' \\\r\n  'https://localhost:7013/api/Produto' \\\r\n  -H 'accept: */*'"
+					},
+					"response": []
+				},
+				{
+					"name": "Criar Pedido",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ItensPedido\": [\r\n        {\r\n            \"ProdutoId\": 644,\r\n            \"Quantidade\": 4\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7013/api/Pedido",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7013",
+							"path": [
+								"api",
+								"Pedido"
+							]
+						},
+						"description": "Generated from cURL: curl -X 'POST' \\\r\n  'https://localhost:7013/api/Pedido' \\\r\n  -H 'accept: */*' \\\r\n  -H 'Content-Type: application/json' \\\r\n  -d '{\r\n    \"ItensPedido\": [\r\n        {\r\n            \"ProdutoId\": 1,\r\n            \"Quantidade\": 3\r\n        },\r\n        {\r\n            \"ProdutoId\": 2,\r\n            \"Quantidade\": 4\r\n        }\r\n    ]\r\n}'"
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar Pedido",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "https://localhost:7013/api/Pedido",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7013",
+							"path": [
+								"api",
+								"Pedido"
+							]
+						},
+						"description": "Generated from cURL: curl -X 'GET' \\\r\n  'https://localhost:7013/api/Pedido' \\\r\n  -H 'accept: */*'"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
